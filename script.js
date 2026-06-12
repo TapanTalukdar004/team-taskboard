@@ -4,7 +4,11 @@ const addBtn = document.getElementById("addBtn");
 const list = document.getElementById("list");
 const counter = document.getElementById("counter");
 
-let tasks = []; // each task: { text, done }
+let tasks = JSON.parse(localStorage.getItem("tasks") || "[]"); // AB-4: load saved tasks
+
+function save() {                                              // AB-4: persist
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 function addTask() {
   const text = input.value.trim();
@@ -53,7 +57,11 @@ function render() {
     li.appendChild(delBtn);
     list.appendChild(li);
   });
+  save();                          // AB-4: save after every change
 }
+
+render();          // AB-4: show saved tasks on page load
+updateCounter();
 
 addBtn.addEventListener("click", addTask);
 input.addEventListener("keydown", (e) => {
