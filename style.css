@@ -59,3 +59,7 @@ ul#list li {
 
 /* AB-1 will use this class for completed tasks */
 .done { text-decoration: line-through; color: #a7a3b3; }
+
+ul#list li span { flex: 1; }
+.del { background: transparent; color: #c81e4a; padding: 2px 8px; font-size: 16px; }
+.del:hover { background: #fde7ee; }
