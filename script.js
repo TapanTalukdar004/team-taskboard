@@ -47,7 +47,7 @@ function render() {
     delBtn.textContent = "✕";
     delBtn.className = "del";
     delBtn.addEventListener("click", () => {
-      tasks.splice(index);
+      tasks.splice(index, 1);   // remove ONLY this task (the , 1 was missing)
       render();
       updateCounter();
     });
