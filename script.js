@@ -35,7 +35,7 @@ function render() {
     checkbox.checked = task.done;
     checkbox.addEventListener("change", () => {
       task.done = checkbox.checked;
-      if (checkbox.checked) updateCounter();
+      updateCounter();   // update on BOTH check and uncheck
       render();
     });
 
